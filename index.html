@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/simple-infinite.js"></script>
+    <style>
+        .demo {
+            height: 200px;
+            width: 400px;
+            background: yellow;
+            margin: 100px auto;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        $(function () {
+
+            var loading = false;
+            var lastIndex = $('#wrap li').length;
+            var maxItems = 150;
+            var itemsPerLoad = 20;
+
+            $('.demo').infiniteScroll().on('infinite', function () {
+                if (loading) return;
+                loading = true;
+                setTimeout(function () {
+                    loading = false;
+                    if (lastIndex >= maxItems) {
+                        $('.demo').infiniteScroll('unbind');
+                        return;
+                    }
+                    var html = '';
+                    for (var i = lastIndex + 1; i <= lastIndex + itemsPerLoad; i++) {
+                        html += '<li >Item ' + i + '</li>';
+                    }
+
+                    $('#wrap').append(html);
+
+                    lastIndex = $('#wrap li').length;
+                }, 1000);
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="demo">
+    多年来，数据库负载需要增加时，数据管理员只能依赖于纵向扩展（scale-up）--买更多更强的服务器，而不是依赖横向扩展（scale-out）--将数据库分布在多台主机上。无论如何，随着交易频率、可用性要求的提高，和数据库向云上和虚拟环境中迁移的需求的提出，基于商业硬件的横向扩展所带来的经济效益已经变得无法拒绝。
+
+    相对于 RDBMS 系统不能轻松的在商业集群上进行横向扩展，新生的 NoSQL 数据设计上就是要能够透明的利用新节点进行扩展。NoSQL 数据库的设计通常要考虑利用低成本的商业硬件。
+    多年来，数据库负载需要增加时，数据管理员只能依赖于纵向扩展（scale-up）--买更多更强的服务器，而不是依赖横向扩展（scale-out）--将数据库分布在多台主机上。无论如何，随着交易频率、可用性要求的提高，和数据库向云上和虚拟环境中迁移的需求的提出，基于商业硬件的横向扩展所带来的经济效益已经变得无法拒绝。
+
+    相对于 RDBMS 系统不能轻松的在商业集群上进行横向扩展，新生的 NoSQL 数据设计上就是要能够透明的利用新节点进行扩展。NoSQL 数据库的设计通常要考虑利用低成本的商业硬件。
+    <ul id="wrap">
+    </ul>
+</div>
+
+
+</body>
+</html>

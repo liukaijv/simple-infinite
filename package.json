@@ -1,0 +1,18 @@
+{
+  "name": "simple-infinite",
+  "version": "1.0.0",
+  "description": "lightweight infinite data",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "noop",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liukaijv/simple-infinite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liukaijv/simple-infinite/issues"
+  },
+  "homepage": "https://github.com/liukaijv/simple-infinite#readme"
+}
